@@ -7,7 +7,6 @@ Application will start `./startup.sh` Automatically.
 
 ```
 docker build -t wangxian/alpine-redis .
-
 ```
 
 # Set redis password
