@@ -13,11 +13,11 @@ docker build -t wangxian/alpine-redis .
 
 ```bash
 # quick start
-docker run -it --rm -p 6379:6379 wangxian/alpine-redis
+docker run -it --name redis --rm -p 6379:6379 wangxian/alpine-redis
 
 # user password
-docker run -it -e REDIS_PASSWORD=300150_983c_d24fb_0d6963f_3f22 --rm -p 6379:6379 wangxian/alpine-redis
+docker run -it --name redis -e REDIS_PASSWORD=300150_983c_d24fb_0d6963f_3f22 --rm -p 6379:6379 wangxian/alpine-redis
 
 # mount data directory
-docker run -it --rm -v ~/appdata/redis:/app -p 6379:6379 wangxian/alpine-redis
+docker run -it --name redis --rm -v ~/appdata/redis:/app -p 6379:6379 wangxian/alpine-redis
 ```
