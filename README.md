@@ -1,15 +1,24 @@
 # alpine-redis
-Alpine Linux-base Docker image with Redis
-
+a very samll docker image base on alpine with Redis
 
 Application will start `./startup.sh` Automatically.
 
-# build
+# build local
+
 ```
 docker build -t wangxian/alpine-redis .
-docker run -it --rm -p 6379:6379 wangxian/alpine-redis
+
 ```
 
 # Set redis password
 
-docker run -it -e REDIS_PASSWORD=1122334455 --rm -p 6379:6379 wangxian/alpine-redis
+```bash
+# quick start
+docker run -it --rm -p 6379:6379 wangxian/alpine-redis
+
+# user password
+docker run -it -e REDIS_PASSWORD=300150_983c_d24fb_0d6963f_3f22 --rm -p 6379:6379 wangxian/alpine-redis
+
+# mount data directory
+docker run -it --rm -v ~/appdata/redis:/app -p 6379:6379 wangxian/alpine-redis
+```
