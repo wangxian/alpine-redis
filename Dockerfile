@@ -6,7 +6,9 @@ WORKDIR /app
 COPY redis.conf /etc/redis.conf
 COPY startup.sh /startup.sh
 
-RUN apk add --update redis && rm -rf /var/cache/apk/*
+RUN apk add --update redis \
+    && apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata \
+    && rm -rf /var/cache/apk/*
 
 EXPOSE 6379
 
